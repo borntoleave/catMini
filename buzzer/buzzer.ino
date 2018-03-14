@@ -2,7 +2,7 @@
 // Rongzhong Li
 // August 2017
 
-#define BUZZER 5
+#define BUZZER 4
 void beep(int note, float duration = 10, int pause = 0, byte repeat = 1 ) {
   if (note == 0) {
     analogWrite(BUZZER, 0);
