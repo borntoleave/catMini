@@ -37,10 +37,10 @@ int a=0;
 void loop() {
   // tone: pause,1,  2,  3,  4,  5,  6,  7,  1,  2
   // code: 0,    1,  3,  5,  6,  8,  10, 12, 13, 15
-  /*byte melody[] = {8, 13, 10, 13, 8, 0, 5, 8, 3, 5, 8,
+  byte melody[] = {8, 13, 10, 13, 8, 0, 5, 8, 3, 5, 8,
                    8, 8, 32, 32, 8, 32, 32, 32, 32, 32, 8
                    //8,8,16,16,8,16,16,16,16,8
                   };
-  playMelody(melody, sizeof(melody) / 2);*/
+  playMelody(melody, sizeof(melody) / 2);
   Serial.println(a++);
 }
