@@ -327,11 +327,11 @@ void setup() {
   }
 
   //opening music
-  /*if (WalkingDOF == 8)
+  if (WalkingDOF == 8)
   {
     pinMode(BUZZER, OUTPUT);
     playMelody(MELODY);
-  }*/
+  }
   //IR
   {
     //Serial.println(F("IR Receiver Button Decode"));
