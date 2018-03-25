@@ -8,8 +8,8 @@
  *  See those liscences in corresponding sections.
  */
 
-#define INIT false
-#define LITE false
+#define INIT true
+#define LITE true
 #include <EEPROM.h>
 #define SPT(s) Serial.print(s)
 #define SPTL(s) Serial.println(s)
@@ -224,7 +224,7 @@ void writeConst(bool lite = true) {
 
   for (byte i = 0; i < DOF; i++) {
     if (lite) {
-      byte pins[] = {0, 0, 0, 0, 0, 0, 0, 0, 5, 4, 8, 9, 7, 6, 10, 11};
+      byte pins[] = {0, 0, 0, 0, 0, 0, 0, 0, 5, 4, 10, 11, 7, 6,8, 9};
       //byte pins[] = { 0, 1, 0, 0,  0, 0,  0, 0, 3, 2,  6, 7,  5, 4,  8, 9};
       EEPROM.update(PIN + i, pins[i]);
     }
