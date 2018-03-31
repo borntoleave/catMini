@@ -68,35 +68,38 @@ int receiver = 5; // Signal Pin of IR receiver to Arduino Digital Pin 5
 IRrecv irrecv(receiver);     // create instance of 'irrecv'
 decode_results results;      // create instance of 'decode_results'
 String translateIR() // takes action based on IR code received
-// describing Remote IR codes
-{
+// describing Remote IR codes. 
+{                                     
   switch (results.value) {
-    //case 0xFF629D: return (F("vt"));  // Serial.println(" FORWARD");
-    case 0xFF629D: return (F("buttUp"));  // Serial.println(" FORWARD");
-    case 0xFF22DD: return (F("sit"));     //Serial.println(" LEFT");
-    case 0xFF02FD: return (F("bd"));       //Serial.println(" -OK-");
-    case 0xFFC23D: return (F("balance"));    //Serial.println(" RIGHT");
-    case 0xFFA857: return (F("d"));  //Serial.println(" REVERSE");
-    case 0xFF6897: return (F("trL"));        //Serial.println(" 1");
-    case 0xFF9867: return (F("tr"));        //Serial.println(" 2");
-    case 0xFFB04F: return (F("trR"));        //Serial.println(" 3");
-    case 0xFF30CF: return (F("wkL"));        //Serial.println(" 4");
-    case 0xFF18E7: return (F("wk"));        //Serial.println(" 5");
-    case 0xFF7A85: return (F("wkR"));        //Serial.println(" 6");
-    case 0xFF10EF: return (F("crL"));        //Serial.println(" 7");
-    case 0xFF38C7: return (F("cr"));        //Serial.println(" 8");
-    case 0xFF5AA5: return (F("crR"));        //Serial.println(" 9");
-    case 0xFF42BD: return (F("bkL"));        //Serial.println(" *");
-    case 0xFF4AB5: return (F("bk"));        //Serial.println(" 0");
-    case 0xFF52AD: return (F("bkR"));        //Serial.println(" #");
+                 //abbreviation of gaits      key on IR remote                gait/posture names
+    case 0xFF629D: return (F("vt"));        //Serial.println(" FORWARD");   //stepping on spot, "mark time"
+    case 0xFF22DD: return (F("sit"));       //Serial.println(" LEFT");      //sit
+    case 0xFF02FD: return (F("bd"));        //Serial.println(" -OK-");      //bound
+    case 0xFFC23D: return (F("balance"));   //Serial.println(" RIGHT");     //standing
+    case 0xFFA857: return (F("d"));         //Serial.println(" REVERSE");   //shut down servos
+    case 0xFF6897: return (F("trL"));       //Serial.println(" 1");         //trot left
+    case 0xFF9867: return (F("tr"));        //Serial.println(" 2");         //trot 
+    case 0xFFB04F: return (F("trR"));       //Serial.println(" 3");         //trot right
+    case 0xFF30CF: return (F("wkL"));       //Serial.println(" 4");         //walk left
+    case 0xFF18E7: return (F("wk"));        //Serial.println(" 5");         //walk 
+    case 0xFF7A85: return (F("wkR"));       //Serial.println(" 6");         //walk right
+    case 0xFF10EF: return (F("crL"));       //Serial.println(" 7");         //crawl left
+    case 0xFF38C7: return (F("cr"));        //Serial.println(" 8");         //crawl
+    case 0xFF5AA5: return (F("crR"));       //Serial.println(" 9");         //crawl right
+    case 0xFF42BD: return (F("bkL"));       //Serial.println(" *");         //back left
+    case 0xFF4AB5: return (F("bk"));        //Serial.println(" 0");         //back
+    case 0xFF52AD: return (F("bkR"));       //Serial.println(" #");         //back right
     case 0xFFFFFFFF: return (""); //Serial.println(" REPEAT");
 
     default:
       return ("");                      //Serial.println("null");
-
   }// End Case
-
   //delay(100); // Do not get immediate repeat //no need because the main loop is slow
+  
+  // The control could be organized in another way, such as:
+  // forward/backward to change the gaits corresponding to different speeds. 
+  // left/right key for turning left and right
+  // number keys for different postures or behaviors
 }
 
 #define DOF 16
