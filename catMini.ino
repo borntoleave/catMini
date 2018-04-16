@@ -624,7 +624,6 @@ void loop() {
           //            int dutyIdx =  t * WalkingDOF - offset + i;
           //            dutyTemp[dutyIdx] =(dutyAng[dutyIdx] + adjust(i)) / (1 + sqrt(fabs(ypr[1] * ypr[2])) / M_PI * 2) ;
           //          }
-
           transform( dutyAng, offset, 1);
           if (!strcmp(cmd, "rest")) {
             shutServos();
