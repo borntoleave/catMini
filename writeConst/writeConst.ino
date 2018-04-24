@@ -683,6 +683,12 @@ void calibration() {
     }
     else gz_offset = gz_offset - mean_gz / (giro_deadzone + 2);
 
-    if (ready == 6) break;
+    for(int i=0;i<ready;i++){
+        beep(30);
+        delay(200);
+    }
+    if (ready == 6) 
+      break;
+    
   }
 }
