@@ -1,5 +1,5 @@
 # catMini
-This is the course repository for catMini.
+This is the course repository for catMini. Check out this demo video with my students racing them! https://youtu.be/T1OEnOONbIA
 
 Structure
 * Images/blockDiagram.png shows the circuit connection for catMini
